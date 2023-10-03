@@ -91,8 +91,8 @@ async function setCardsField(cardId){
 
    let duelResults = await checkDuelResults(cardId, computerCardId);
 
-   await updateScore();
-   await drawButton(duelResults);
+    await updateScore();
+    await drawButton(duelResults);
 }
 
 async function drawButton(text){
@@ -101,15 +101,15 @@ async function drawButton(text){
 }
 
 async function updateScore(){
-    state.score.scoreBox.innerText = `Win: ${state.score.playerScore} | Lose: ${state.score.computerScore}`;
+    state.score.scoreBox.innerText = `Win:${state.score.playerScore} | Lose:${state.score.computerScore}`;
 }
 
-async function checkDuelResults(){
+async function checkDuelResults(playerCardId, ComputerCardId){
     let duelResults = "Empate";
     let playerCard = cardData[playerCardId];
 
     if(playerCard.WinOf.includes(ComputerCardId)){
-        duelResults = "Ganhou"
+        duelResults = "Ganhou";
         state.score.playerScore++;
     }
 
