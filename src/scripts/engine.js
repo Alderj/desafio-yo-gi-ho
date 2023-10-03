@@ -109,16 +109,16 @@ async function checkDuelResults(playerCardId, ComputerCardId){
     let playerCard = cardData[playerCardId];
 
     if(playerCard.WinOf.includes(ComputerCardId)){
-        duelResults = "Win";
-        await playAudio(duelResults);
+        duelResults = "Win";        
         state.score.playerScore++;
     }
 
     if(playerCard.LoseOf.includes(ComputerCardId)){
-        duelResults = "lose";
-        await playAudio(duelResults);
+        duelResults = "lose";       
         state.score.computerScore++;
     }
+
+    await playAudio(duelResults);
 
     return duelResults;
 }
@@ -158,7 +158,9 @@ async function resetDuel(){
 
 async function playAudio(status){
     const audio = new Audio(`./src/assets/audios/${status}.wav`);
-    audio.play();
+    try{
+        audio.play();
+    }catch{}   
 }
 
 function init(){
