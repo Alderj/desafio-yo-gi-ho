@@ -68,11 +68,11 @@ if(fieldSide === playerSides.player1){
     cardImage.addEventListener("click", ()=>{
         setCardsField(cardImage.getAttribute("data-id"));
     });
-}
 
     cardImage.addEventListener("mouseover", ()=>{
         drawSelectCard(IdCard);
     }); 
+}    
 
     return cardImage;
 }
